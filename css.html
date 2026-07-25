@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Properties Showcase</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --border:#30363d;
+    --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --code-bg:#0a0e14;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,Segoe UI,Roboto,sans-serif;
+    margin:0; padding:0 0 80px;
+  }
+  header{
+    padding:28px 40px; border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; background:var(--bg); z-index:10;
+  }
+  header h1{margin:0; font-size:20px;}
+  nav a{
+    color:var(--text); text-decoration:none; margin-left:18px;
+    padding:8px 14px; border:1px solid var(--border); border-radius:6px;
+    font-size:14px;
+  }
+  nav a.active{background:var(--accent); color:#000; border-color:var(--accent);}
+  nav a:hover{border-color:var(--accent);}
+  main{max-width:1000px; margin:0 auto; padding:20px 40px;}
+  section{
+    border:1px solid var(--border); border-radius:10px; margin:28px 0;
+    overflow:hidden; background:var(--panel);
+  }
+  section > h2{
+    margin:0; padding:14px 20px; background:#1c2128; font-size:14px;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--accent);
+    border-bottom:1px solid var(--border);
+  }
+  .demo{padding:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:700px){ .demo{grid-template-columns:1fr;} }
+  .demo-block{border:1px dashed var(--border); border-radius:8px; padding:14px;}
+  .label{font-size:11px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; letter-spacing:.05em;}
+  .rendered{background:#fff; color:#111; border-radius:6px; padding:16px; min-height:60px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;}
+  pre{
+    background:var(--code-bg); color:#9ecbff; margin:0; padding:14px;
+    border-radius:6px; overflow-x:auto; font-size:13px; line-height:1.5;
+  }
+  code{font-family:'SF Mono',Consolas,monospace;}
+  .prop{color:#7ee787;} .val{color:#ffa657;} .sel{color:#ff7b72;}
+  p.intro{color:var(--muted); font-size:14px; padding:0 20px 16px;}
+
+  /* --- demo helper classes used inside .rendered boxes --- */
+  .box{width:70px; height:70px; background:#4d96ff; border-radius:4px;}
+  .swatch{width:60px;height:60px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>&lt;/&gt; CSS Properties Showcase</h1>
+  <nav>
+    <a href="index.html">HTML Tags</a>
+    <a href="css.html" class="active">CSS Properties</a>
+  </nav>
+</header>
+
+<main>
+<p class="intro">Each card shows the CSS declaration on the left and its visual effect on the right. Covers color, box model, typography, layout (flex/grid), position, and effects (shadow, transform, transition, gradients).</p>
+
+<!-- COLOR & BACKGROUND -->
+<section>
+  <h2>color &amp; background</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.box {
+  <span class="prop">color</span>: <span class="val">white</span>;
+  <span class="prop">background-color</span>: <span class="val">#ff6b6b</span>;
+}
+.box2 {
+  <span class="prop">background</span>: <span class="val">linear-gradient(135deg,#89f7fe,#66a6ff)</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <div style="background:#ff6b6b;color:#fff;padding:16px;border-radius:6px;">solid color</div>
+        <div style="background:linear-gradient(135deg,#89f7fe,#66a6ff);color:#003;padding:16px;border-radius:6px;">gradient</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOX MODEL -->
+<section>
+  <h2>Box Model — margin, padding, border, width/height</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.box {
+  <span class="prop">width</span>: <span class="val">100px</span>;
+  <span class="prop">height</span>: <span class="val">60px</span>;
+  <span class="prop">padding</span>: <span class="val">10px</span>;
+  <span class="prop">margin</span>: <span class="val">14px</span>;
+  <span class="prop">border</span>: <span class="val">3px solid #333</span>;
+  <span class="prop">box-sizing</span>: <span class="val">border-box</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered" style="background:#e8e8e8;">
+        <div style="width:100px;height:60px;padding:10px;margin:14px;border:3px solid #333;box-sizing:border-box;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;">content</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BORDER RADIUS & SHADOW -->
+<section>
+  <h2>border-radius, box-shadow, text-shadow, opacity</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.round {
+  <span class="prop">border-radius</span>: <span class="val">50%</span>;
+}
+.shadow {
+  <span class="prop">box-shadow</span>: <span class="val">0 6px 16px rgba(0,0,0,.35)</span>;
+}
+.faded {
+  <span class="prop">opacity</span>: <span class="val">0.5</span>;
+}
+.textshadow {
+  <span class="prop">text-shadow</span>: <span class="val">2px 2px 4px #999</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <div class="swatch" style="background:#4d96ff;border-radius:50%;"></div>
+        <div class="swatch" style="background:#4d96ff;box-shadow:0 6px 16px rgba(0,0,0,.35);"></div>
+        <div class="swatch" style="background:#4d96ff;opacity:0.5;"></div>
+        <div style="font-size:22px;font-weight:bold;text-shadow:2px 2px 4px #999;">Text</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section>
+  <h2>Typography — font-family, font-weight, letter-spacing, text-align, text-decoration</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>p {
+  <span class="prop">font-family</span>: <span class="val">Georgia, serif</span>;
+  <span class="prop">font-weight</span>: <span class="val">700</span>;
+  <span class="prop">font-style</span>: <span class="val">italic</span>;
+  <span class="prop">letter-spacing</span>: <span class="val">2px</span>;
+  <span class="prop">text-align</span>: <span class="val">center</span>;
+  <span class="prop">text-decoration</span>: <span class="val">underline wavy red</span>;
+  <span class="prop">text-transform</span>: <span class="val">uppercase</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered" style="display:block;">
+        <p style="font-family:Georgia,serif;font-weight:700;font-style:italic;letter-spacing:2px;text-align:center;text-decoration:underline wavy red;text-transform:uppercase;margin:0;">styled text</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISPLAY -->
+<section>
+  <h2>display — block, inline, inline-block, none</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.a { <span class="prop">display</span>: <span class="val">block</span>; }
+.b { <span class="prop">display</span>: <span class="val">inline</span>; }
+.c { <span class="prop">display</span>: <span class="val">inline-block</span>; width: 60px; }</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered" style="display:block; text-align:left;">
+        <div style="display:block;background:#c2e0ff;padding:4px;">block (own line)</div>
+        <span style="display:inline;background:#ffe9c2;">inline</span>
+        <span style="display:inline;background:#ffe9c2;">flows together</span><br>
+        <span style="display:inline-block;width:70px;background:#d6f5d6;padding:4px;">inline-block</span>
+        <span style="display:inline-block;width:70px;background:#d6f5d6;padding:4px;">has width</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEXBOX -->
+<section>
+  <h2>Flexbox — display:flex, justify-content, align-items, gap</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.container {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+  <span class="prop">justify-content</span>: <span class="val">space-between</span>;
+  <span class="prop">align-items</span>: <span class="val">center</span>;
+  <span class="prop">gap</span>: <span class="val">10px</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;background:#eee;border-radius:6px;padding:10px;">
+        <div style="background:#4d96ff;color:#fff;padding:10px;border-radius:4px;">1</div>
+        <div style="background:#4d96ff;color:#fff;padding:16px;border-radius:4px;">2</div>
+        <div style="background:#4d96ff;color:#fff;padding:6px;border-radius:4px;">3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRID -->
+<section>
+  <h2>CSS Grid — display:grid, grid-template-columns, gap</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.grid {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr 1fr</span>;
+  <span class="prop">gap</span>: <span class="val">8px</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div style="background:#ffd6d6;padding:14px;text-align:center;border-radius:4px;">1</div>
+        <div style="background:#d6f5d6;padding:14px;text-align:center;border-radius:4px;">2</div>
+        <div style="background:#c2e0ff;padding:14px;text-align:center;border-radius:4px;">3</div>
+        <div style="background:#ffe9c2;padding:14px;text-align:center;border-radius:4px;">4</div>
+        <div style="background:#e6d6ff;padding:14px;text-align:center;border-radius:4px;">5</div>
+        <div style="background:#d6fff0;padding:14px;text-align:center;border-radius:4px;">6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITION -->
+<section>
+  <h2>position — relative, absolute, sticky</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.parent { <span class="prop">position</span>: <span class="val">relative</span>; }
+.child  {
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">top</span>: <span class="val">8px</span>;
+  <span class="prop">right</span>: <span class="val">8px</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div style="position:relative;background:#eee;height:90px;border-radius:6px;">
+        <div style="position:absolute;top:8px;right:8px;background:#ff6b6b;color:#fff;padding:6px 10px;border-radius:4px;font-size:12px;">absolute</div>
+        <div style="padding:10px;font-size:12px;color:#555;">parent (position: relative)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM -->
+<section>
+  <h2>transform — rotate, scale, translate, skew</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.a { <span class="prop">transform</span>: <span class="val">rotate(15deg)</span>; }
+.b { <span class="prop">transform</span>: <span class="val">scale(1.3)</span>; }
+.c { <span class="prop">transform</span>: <span class="val">translateY(-8px)</span>; }
+.d { <span class="prop">transform</span>: <span class="val">skewX(10deg)</span>; }</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <div class="swatch" style="background:#4d96ff;transform:rotate(15deg);"></div>
+        <div class="swatch" style="background:#4d96ff;transform:scale(1.3);"></div>
+        <div class="swatch" style="background:#4d96ff;transform:translateY(-8px);"></div>
+        <div class="swatch" style="background:#4d96ff;transform:skewX(10deg);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSITION / HOVER -->
+<section>
+  <h2>transition (hover over the box to see it animate)</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.btn {
+  <span class="prop">background</span>: <span class="val">#4d96ff</span>;
+  <span class="prop">transition</span>: <span class="val">all 0.3s ease</span>;
+}
+.btn:hover {
+  <span class="prop">background</span>: <span class="val">#ff6b6b</span>;
+  <span class="prop">transform</span>: <span class="val">scale(1.15)</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered — hover me</div>
+      <div class="rendered">
+        <div class="swatch" style="background:#4d96ff;transition:all .3s ease;cursor:pointer;"
+             onmouseover="this.style.background='#ff6b6b';this.style.transform='scale(1.15)';"
+             onmouseout="this.style.background='#4d96ff';this.style.transform='scale(1)';"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATION -->
+<section>
+  <h2>@keyframes animation</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="sel">@keyframes</span> bounce {
+  0%, 100% { <span class="prop">transform</span>: <span class="val">translateY(0)</span>; }
+  50%      { <span class="prop">transform</span>: <span class="val">translateY(-14px)</span>; }
+}
+.ball {
+  <span class="prop">animation</span>: <span class="val">bounce 1s infinite ease-in-out</span>;
+}</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <div class="swatch" style="background:#4d96ff;border-radius:50%;animation:bounce 1s infinite ease-in-out;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERFLOW & FILTER -->
+<section>
+  <h2>overflow &amp; filter</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code>.scrollbox {
+  <span class="prop">height</span>: <span class="val">50px</span>;
+  <span class="prop">overflow-y</span>: <span class="val">scroll</span>;
+}
+.blur { <span class="prop">filter</span>: <span class="val">blur(3px)</span>; }
+.gray { <span class="prop">filter</span>: <span class="val">grayscale(100%)</span>; }</code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <div style="height:50px;width:100px;overflow-y:scroll;background:#f5f5f5;font-size:11px;padding:4px;">
+          line 1<br>line 2<br>line 3<br>line 4<br>line 5<br>line 6
+        </div>
+        <div class="swatch" style="background:#4d96ff;filter:blur(3px);"></div>
+        <div class="swatch" style="background:#4d96ff;filter:grayscale(100%);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<style>
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+</style>
+</body>
+</html>

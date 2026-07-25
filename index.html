@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Tags Showcase</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --border:#30363d;
+    --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --code-bg:#0a0e14;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,Segoe UI,Roboto,sans-serif;
+    margin:0; padding:0 0 80px;
+  }
+  header{
+    padding:28px 40px; border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; background:var(--bg); z-index:10;
+  }
+  header h1{margin:0; font-size:20px;}
+  nav a{
+    color:var(--text); text-decoration:none; margin-left:18px;
+    padding:8px 14px; border:1px solid var(--border); border-radius:6px;
+    font-size:14px;
+  }
+  nav a.active{background:var(--accent); color:#000; border-color:var(--accent);}
+  nav a:hover{border-color:var(--accent);}
+  main{max-width:1000px; margin:0 auto; padding:20px 40px;}
+  section{
+    border:1px solid var(--border); border-radius:10px; margin:28px 0;
+    overflow:hidden; background:var(--panel);
+  }
+  section > h2{
+    margin:0; padding:14px 20px; background:#1c2128; font-size:14px;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--accent);
+    border-bottom:1px solid var(--border);
+  }
+  .demo{padding:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:700px){ .demo{grid-template-columns:1fr;} }
+  .demo-block{border:1px dashed var(--border); border-radius:8px; padding:14px;}
+  .label{font-size:11px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; letter-spacing:.05em;}
+  .rendered{background:#fff; color:#111; border-radius:6px; padding:14px; min-height:40px;}
+  pre{
+    background:var(--code-bg); color:#9ecbff; margin:0; padding:14px;
+    border-radius:6px; overflow-x:auto; font-size:13px; line-height:1.5;
+  }
+  code{font-family:'SF Mono',Consolas,monospace;}
+  .tag{color:#ff7b72;} .attr{color:#79c0ff;} .val{color:#a5d6ff;} .txt{color:#e6edf3;}
+  p.intro{color:var(--muted); font-size:14px; padding:0 20px 16px;}
+  table.demo-table{border-collapse:collapse; width:100%;}
+  table.demo-table th, table.demo-table td{border:1px solid #ccc; padding:6px 10px; text-align:left;}
+  table.demo-table th{background:#f0f0f0;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>&lt;/&gt; HTML Tags Showcase</h1>
+  <nav>
+    <a href="index.html" class="active">HTML Tags</a>
+    <a href="css.html">CSS Properties</a>
+  </nav>
+</header>
+
+<main>
+<p class="intro">Every section below shows the raw tag on the left and how it actually renders on the right. Scroll through — this covers structure, text, lists, tables, forms, media and semantic tags.</p>
+
+<!-- HEADINGS -->
+<section>
+  <h2>Headings — h1 to h6</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;h1&gt;</span><span class="txt">Heading 1</span><span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span><span class="txt">Heading 2</span><span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span><span class="txt">Heading 3</span><span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;h4&gt;</span><span class="txt">Heading 4</span><span class="tag">&lt;/h4&gt;</span>
+<span class="tag">&lt;h5&gt;</span><span class="txt">Heading 5</span><span class="tag">&lt;/h5&gt;</span>
+<span class="tag">&lt;h6&gt;</span><span class="txt">Heading 6</span><span class="tag">&lt;/h6&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <h1 style="margin:6px 0;">Heading 1</h1>
+        <h2 style="margin:6px 0;">Heading 2</h2>
+        <h3 style="margin:6px 0;">Heading 3</h3>
+        <h4 style="margin:6px 0;">Heading 4</h4>
+        <h5 style="margin:6px 0;">Heading 5</h5>
+        <h6 style="margin:6px 0;">Heading 6</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXT FORMATTING -->
+<section>
+  <h2>Text Formatting Tags</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;b&gt;</span>bold<span class="tag">&lt;/b&gt;</span>
+<span class="tag">&lt;strong&gt;</span>strong<span class="tag">&lt;/strong&gt;</span>
+<span class="tag">&lt;i&gt;</span>italic<span class="tag">&lt;/i&gt;</span>
+<span class="tag">&lt;em&gt;</span>emphasis<span class="tag">&lt;/em&gt;</span>
+<span class="tag">&lt;u&gt;</span>underline<span class="tag">&lt;/u&gt;</span>
+<span class="tag">&lt;mark&gt;</span>highlighted<span class="tag">&lt;/mark&gt;</span>
+<span class="tag">&lt;small&gt;</span>small text<span class="tag">&lt;/small&gt;</span>
+<span class="tag">&lt;del&gt;</span>deleted<span class="tag">&lt;/del&gt;</span>
+<span class="tag">&lt;ins&gt;</span>inserted<span class="tag">&lt;/ins&gt;</span>
+H<span class="tag">&lt;sub&gt;</span>2<span class="tag">&lt;/sub&gt;</span>O
+E=mc<span class="tag">&lt;sup&gt;</span>2<span class="tag">&lt;/sup&gt;</span>
+<span class="tag">&lt;code&gt;</span>let x = 5;<span class="tag">&lt;/code&gt;</span>
+<span class="tag">&lt;blockquote&gt;</span>A quote<span class="tag">&lt;/blockquote&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <p><b>bold</b> · <strong>strong</strong> · <i>italic</i> · <em>emphasis</em> · <u>underline</u></p>
+        <p><mark>highlighted</mark> · <small>small text</small> · <del>deleted</del> · <ins>inserted</ins></p>
+        <p>H<sub>2</sub>O &nbsp; E=mc<sup>2</sup></p>
+        <p><code>let x = 5;</code></p>
+        <blockquote style="margin:6px 0; border-left:3px solid #999; padding-left:10px; color:#555;">A quote</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS & IMAGES -->
+<section>
+  <h2>Links &amp; Images</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://example.com"</span><span class="tag">&gt;</span>Visit site<span class="tag">&lt;/a&gt;</span>
+
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"pic.jpg"</span>
+     <span class="attr">alt</span>=<span class="val">"description"</span>
+     <span class="attr">width</span>=<span class="val">"120"</span><span class="tag">&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <p><a href="#" style="color:#0969da;">Visit site (a tag)</a></p>
+        <div style="width:120px;height:80px;background:linear-gradient(135deg,#89f7fe,#66a6ff);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#003;">img placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTS -->
+<section>
+  <h2>Lists — ul, ol, dl</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Apple<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Banana<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+<span class="tag">&lt;ol&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Step one<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Step two<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+
+<span class="tag">&lt;dl&gt;</span>
+  <span class="tag">&lt;dt&gt;</span>HTML<span class="tag">&lt;/dt&gt;</span>
+  <span class="tag">&lt;dd&gt;</span>Markup language<span class="tag">&lt;/dd&gt;</span>
+<span class="tag">&lt;/dl&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <ul style="margin:4px 0;"><li>Apple</li><li>Banana</li></ul>
+        <ol style="margin:4px 0;"><li>Step one</li><li>Step two</li></ol>
+        <dl style="margin:4px 0;"><dt style="font-weight:bold;">HTML</dt><dd>Markup language</dd></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section>
+  <h2>Tables</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;th&gt;</span>Name<span class="tag">&lt;/th&gt;</span>
+    <span class="tag">&lt;th&gt;</span>Age<span class="tag">&lt;/th&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;td&gt;</span>Saliq<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>20<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <table class="demo-table">
+          <tr><th>Name</th><th>Age</th></tr>
+          <tr><td>Saliq</td><td>20</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMS -->
+<section>
+  <h2>Form Elements</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Name"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"range"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;select&gt;</span>
+  <span class="tag">&lt;option&gt;</span>One<span class="tag">&lt;/option&gt;</span>
+<span class="tag">&lt;/select&gt;</span>
+<span class="tag">&lt;textarea&gt;</span><span class="tag">&lt;/textarea&gt;</span>
+<span class="tag">&lt;button&gt;</span>Click me<span class="tag">&lt;/button&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered" style="display:flex; flex-direction:column; gap:10px;">
+        <input type="text" placeholder="Name">
+        <label><input type="checkbox"> checkbox</label>
+        <label><input type="radio"> radio</label>
+        <input type="range">
+        <select><option>One</option><option>Two</option></select>
+        <textarea rows="2" placeholder="text area"></textarea>
+        <button>Click me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMANTIC LAYOUT -->
+<section>
+  <h2>Semantic Layout Tags</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;nav&gt;</span>...<span class="tag">&lt;/nav&gt;</span>
+<span class="tag">&lt;main&gt;</span>...<span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;section&gt;</span>...<span class="tag">&lt;/section&gt;</span>
+<span class="tag">&lt;article&gt;</span>...<span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;aside&gt;</span>...<span class="tag">&lt;/aside&gt;</span>
+<span class="tag">&lt;footer&gt;</span>...<span class="tag">&lt;/footer&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered (color-coded)</div>
+      <div class="rendered" style="display:flex; flex-direction:column; gap:4px; font-size:12px;">
+        <div style="background:#ffd6d6; padding:6px;">header</div>
+        <div style="background:#ffe9c2; padding:6px;">nav</div>
+        <div style="background:#d6f5d6; padding:6px;">main
+          <div style="background:#c2e0ff; padding:6px; margin-top:4px;">section &gt; article</div>
+          <div style="background:#e6d6ff; padding:6px; margin-top:4px;">aside</div>
+        </div>
+        <div style="background:#f0d6ff; padding:6px;">footer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURE -->
+<section>
+  <h2>figure &amp; figcaption</h2>
+  <div class="demo">
+    <div class="demo-block">
+      <div class="label">Code</div>
+      <pre><code><span class="tag">&lt;figure&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"pic.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;figcaption&gt;</span>A caption<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></code></pre>
+    </div>
+    <div class="demo-block">
+      <div class="label">Rendered</div>
+      <div class="rendered">
+        <figure style="margin:0; text-align:center;">
+          <div style="width:100px;height:70px;background:#ffd580;border-radius:6px;margin:0 auto;"></div>
+          <figcaption style="font-size:12px; color:#666; margin-top:6px;">A caption</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
